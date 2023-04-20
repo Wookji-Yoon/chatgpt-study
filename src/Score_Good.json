@@ -1,0 +1,102 @@
+{
+  "q1": {
+    "c1": {
+      "Very Good": 9,
+      "Good": 6,
+      "Need Improvement": 1
+    },
+    "c2": {
+      "Very Good": 5,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c3": {
+      "Very Good": 6,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c4": {
+      "Very Good": 3,
+      "Good": 2,
+      "Need Improvement": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  },
+  "q2": {
+    "c1": {
+      "Very Good": 8,
+      "Good": 6,
+      "Need Improvement": 1
+    },
+    "c2": {
+      "Very Good": 6,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c3": {
+      "Very Good": 8,
+      "Good": 4,
+      "Need Improvement": 1
+    },
+    "c4": {
+      "Very Good": 3,
+      "Good": 2,
+      "Need Improvement": 1
+    }
+  },
+  "q3": {
+    "c1": {
+      "Very Good": 7,
+      "Good": 3,
+      "Need Improvement": 0
+    },
+    "c2": {
+      "Very Good": 6,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c3": {
+      "Very Good": 7,
+      "Good": 4,
+      "Need Improvement": 1
+    },
+    "c4": {
+      "Very Good": 3,
+      "Good": 2,
+      "Need Improvement": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  },
+  "q4": {
+    "c1": {
+      "Very Good": 6,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c2": {
+      "Very Good": 6,
+      "Good": 3,
+      "Need Improvement": 1
+    },
+    "c3": {
+      "Very Good": 8,
+      "Good": 4,
+      "Need Improvement": 1
+    },
+    "c4": {
+      "Very Good": 3,
+      "Good": 2,
+      "Need Improvement": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  }
+}

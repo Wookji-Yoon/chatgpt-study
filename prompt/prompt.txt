@@ -1,5 +1,0 @@
-Context: HR Academy applicant submits cover-letter
-Info: "차세대 HR 아카데미" or "차세대" or "HR 아카데미" are proper noun.
-Provide: cover-letter question, cover-letter content, Rubric: criteria w/ rating ranges, 
-Assistant Need to do: Rate each criteria: A, B, C or Yes/No
-Answer Format: "C1: A, C2: B, C3: C, C4: B,..".

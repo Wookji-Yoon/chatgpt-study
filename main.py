@@ -1,34 +1,70 @@
 import json
 import csv
-
+import datetime
 from util import get_json_for_one_candidate, csv_transform
-from config import BASE_PROMPT_FILENAME
+from config import REPEAT, CANDIDATE, FILENAME
 
-# 1. repeat 횟수에 따라 반복됨
-number_of_repeat = 3
+# 변수 선언
+number_of_repeat = REPEAT
+number_of_candidates = CANDIDATE
+file_name = FILENAME
 
-# 2. 파일명은 Prompt 텍스트 파일 명에에 따라 달라짐
-file_name = BASE_PROMPT_FILENAME.split(".")[0]
+# 3. 전체 후보자에 대한 api 응답 결과를 list에 담기
 
-# 3. 전체 후보자에 대한 api 응답 결과를 json 파일로 생성
-for repeat in range(number_of_repeat):
-    print(f"************************ Repeat {repeat+1} started")
+# 3-1. 전체 data를 담을 list와 repeact 횟수만큼의 dict를 생성
+result_with_opinion_list = []
+result_summary_list = []
 
-    result_dict = {}
+for i in range(0, number_of_repeat):
+    globals()[f"result_with_opinion_{i}"] = {}
+    globals()[f"result_summary_{i}"] = {}
 
-    for i in range(1, 85):
-        id = '{:03d}'.format(i)
-        data = get_json_for_one_candidate(i)
+# 3-2. 각 후보자에 대한 api 응답 결과를 dict엔 넣기
+for i in range(1, number_of_candidates+1):
+    id = '{:03d}'.format(i)
+    try:  # error가 발생할 수도 있으므로 예외처리
+        data = get_json_for_one_candidate(i, number_of_repeat)
+        for j in range(0, number_of_repeat):
+            globals()[f"result_with_opinion_{j}"][id] = data[0][j]
+            globals()[f"result_summary_{j}"][id] = data[1][j]
+    except:  # error 발생 시 error 발생한 후보자의 id를 출력
+        print(id + " error")
 
-        result_dict[id] = data
+    print(id + " completed")
 
-        print(id + " completed")
+# 3-3. dict를 list에 넣기
+for i in range(0, number_of_repeat):
+    result_with_opinion_list.append(globals()[f"result_with_opinion_{i}"])
+    result_summary_list.append(globals()[f"result_summary_{i}"])
 
-    with open(f"result/json/{file_name}_{repeat+1}.json", "w", encoding="utf-8") as outfile:
-        json.dump(result_dict, outfile, ensure_ascii=False, indent=4)
+# 파일명 uniqueness를 위한 시간 변수 생성
+current_time = datetime.datetime.now()
+time_string = current_time.strftime("%Y%m%d%H%M%S")
 
-# 4. json 응답 결과를 점수로 변환한 csv 파일 생성
 
-    with open(f"result/csv/{file_name}_{repeat+1}.csv", "w", newline='', encoding="utf-8") as f:
+# 4. dict 안의 각 list를 json 파일로 변환하기
+
+for i in range(0, number_of_repeat):
+
+    with open(f"result/json/{file_name}_with_opinion_{i+1} 반복_{time_string}.json", "w", encoding="utf-8") as outfile:
+        json.dump(result_with_opinion_list[i], outfile,
+                  ensure_ascii=False, indent=4)
+
+    with open(f"result/json/{file_name}_summary_{i+1} 반복_{time_string}.json", "w", encoding="utf-8") as outfile:
+        json.dump(result_summary_list[i], outfile,
+                  ensure_ascii=False, indent=4)
+
+# 5. json 응답 결과를 점수로 변환한 csv 파일 생성
+# 5-1 error list를 통한 csv 변경 오류 처리
+error_dict = {}
+
+for i in range(0, number_of_repeat):
+    with open(f"result/csv/{file_name}_{i+1} 반복_{time_string}.csv", "w", newline='', encoding="utf-8") as f:
         csv_data = csv.writer(f)
-        csv_transform(csv_data, result_dict)
+        error_list = csv_transform(csv_data, result_summary_list[i])
+        error_dict[i+1] = error_list
+
+print("************************ All completed ************************")
+# 5. error list 출력
+print("************************ Error List ************************")
+print(error_dict)

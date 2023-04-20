@@ -1,0 +1,102 @@
+{
+  "q1": {
+    "c1": {
+      "High": 9,
+      "Middle": 6,
+      "Low": 1
+    },
+    "c2": {
+      "High": 5,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c3": {
+      "High": 6,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c4": {
+      "High": 3,
+      "Middle": 2,
+      "Low": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  },
+  "q2": {
+    "c1": {
+      "High": 8,
+      "Middle": 6,
+      "Low": 1
+    },
+    "c2": {
+      "High": 6,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c3": {
+      "High": 8,
+      "Middle": 4,
+      "Low": 1
+    },
+    "c4": {
+      "High": 3,
+      "Middle": 2,
+      "Low": 1
+    }
+  },
+  "q3": {
+    "c1": {
+      "High": 7,
+      "Middle": 3,
+      "Low": 0
+    },
+    "c2": {
+      "High": 6,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c3": {
+      "High": 7,
+      "Middle": 4,
+      "Low": 1
+    },
+    "c4": {
+      "High": 3,
+      "Middle": 2,
+      "Low": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  },
+  "q4": {
+    "c1": {
+      "High": 6,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c2": {
+      "High": 6,
+      "Middle": 3,
+      "Low": 1
+    },
+    "c3": {
+      "High": 8,
+      "Middle": 4,
+      "Low": 1
+    },
+    "c4": {
+      "High": 3,
+      "Middle": 2,
+      "Low": 1
+    },
+    "c5": {
+      "Yes": 2,
+      "No": 0
+    }
+  }
+}
